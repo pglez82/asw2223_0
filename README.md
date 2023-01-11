@@ -1,8 +1,8 @@
-# asw2122_0
+# asw2223_0
 
-[![Actions Status](https://github.com/pglez82/asw2122_0/workflows/CI%20for%20ASW2122/badge.svg)](https://github.com/pglez82/asw2122_0/actions)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pglez82_asw2122_0&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pglez82_asw2122_0)
-[![codecov](https://codecov.io/gh/pglez82/asw2122_0/branch/master/graph/badge.svg?token=VN4XG9NTRO)](https://codecov.io/gh/pglez82/asw2122_0)
+[![Actions Status](https://github.com/pglez82/asw2223_0/workflows/CI%20for%20ASW2223/badge.svg)](https://github.com/pglez82/asw2223_0/actions)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pglez82_asw2223_0&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pglez82_asw2223_0)
+[![codecov](https://codecov.io/gh/pglez82/asw2223_0/branch/master/graph/badge.svg?token=VN4XG9NTRO)](https://codecov.io/gh/pglez82/asw2223_0)
 
 <p float="left">
 <img src="https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg" height="100">
@@ -16,7 +16,7 @@ This project is a basic example of website using **React** with **Typescript** a
 ## Quick start guide
 <mark>In case you already have node.js and npm, make sure you update them before attempting to build the images</mark>
 
-If you want to execute the project you will need [git](https://git-scm.com/downloads), [Node.js and npm](https://www.npmjs.com/get-npm) and [Docker](https://docs.docker.com/get-docker/). Make sure the three of them are installed in your system. Download the project with `git clone https://github.com/pglez82/asw2122_0`. The fastest way to launch everything is with docker:
+If you want to execute the project you will need [git](https://git-scm.com/downloads), [Node.js and npm](https://www.npmjs.com/get-npm) and [Docker](https://docs.docker.com/get-docker/). Make sure the three of them are installed in your system. Download the project with `git clone https://github.com/pglez82/asw2223_0`. The fastest way to launch everything is with docker:
 ```bash
 docker-compose up --build
 ```
@@ -46,9 +46,9 @@ You should be able to access the application in [http://localhost:3000](http://l
 
 ## More information
 You can get more information about the respository in the other README files:
-- Documentation: https://github.com/pglez82/asw2122_0/tree/master/docs
-- Webapp: https://github.com/pglez82/asw2122_0/tree/master/webapp
-- Restapi: https://github.com/pglez82/asw2122_0/tree/master/restapi
+- Documentation: https://github.com/pglez82/asw2223_0/tree/master/docs
+- Webapp: https://github.com/pglez82/asw2223_0/tree/master/webapp
+- Restapi: https://github.com/pglez82/asw2223_0/tree/master/restapi
 
 
 ## Deployment
@@ -90,7 +90,7 @@ After logging in into Microsoft Azure with a student account, we can access the 
 - Now is time for accessing the machine using SSH and installing docker in it. For this, use the public IP of your machine, with the user `azureuser` and the private key that you downloaded previously. If you are not sure how to connect, check the help in the connect tab in Azure. For instance, in my case I use this command for connecting:
 
 ```ssh
-ssh -i ~/Descargas/DeploymentASW2122_key_0223.pem azureuser@52.147.199.48
+ssh -i ~/Descargas/DeploymentASW2223_key_0223.pem azureuser@52.147.199.48
 ```
 ### Create the virtual machine [Option 2 - Amazon AWS]
 
@@ -196,11 +196,11 @@ Now we are going to create a new docker-compose file called docker-compose-deplo
 version: '3.5'
 services:
   restapi:
-    image: ghcr.io/pglez82/asw2122_0/restapi:latest
+    image: ghcr.io/pglez82/asw2223_0/restapi:latest
     ports:
       - "5000:5000"
   webapp:
-    image: ghcr.io/pglez82/asw2122_0/webapp:latest
+    image: ghcr.io/pglez82/asw2223_0/webapp:latest
     ports:
       - "3000:3000"
     depends_on: 
@@ -223,7 +223,7 @@ deploy:
         user: ${{ secrets.DEPLOY_USER }}
         key: ${{ secrets.DEPLOY_KEY }}
         command: |
-          wget https://raw.githubusercontent.com/pglez82/asw2122_0/master/docker-compose-deploy.yml -O docker-compose.yml
+          wget https://raw.githubusercontent.com/pglez82/asw2223_0/master/docker-compose-deploy.yml -O docker-compose.yml
           docker-compose stop
           docker-compose rm -f
           docker-compose pull   

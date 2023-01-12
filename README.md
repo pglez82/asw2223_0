@@ -187,6 +187,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 ### GitHub Actions
 Now we have a capable machine of executing Docker containers. Lets configure our project to be able to use it to deploy our application. The first thing will be creating some GitHub secrets to have the information we need. We are going to create three, DEPLOY_HOST, with the IP of the virtual machine; DEPLOY_USER with the user with permissions to access the machine (azureuser), and DEPLOY_KEY with the contents of the file with the private key, so we are able to log in to the machine.
+As an extra, we need permission to let GitHub Actions upload the docker images to the registry. For this we need to create a new access token with write:packages permission and set it in the DOCKER_PUSH_TOKEN secret.
 
 ![image](https://user-images.githubusercontent.com/10683040/155285731-4ecd6d29-b2f6-46ee-959b-689ea9f69fc7.png)
 

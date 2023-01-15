@@ -1,11 +1,11 @@
 version: '3.5'
 services:
   restapi:
-    image: ghcr.io/pglez82/asw2223_0/restapi:latest
+    image: ghcr.io/cidinene/asw2223_0/restapi:latest
     ports:
       - "5000:5000"
   webapp:
-    image: ghcr.io/pglez82/asw2223_0/webapp:latest
+    image: ghcr.io/cidinene/asw2223_0/webapp:latest
     ports:
       - "3000:3000"
     depends_on: 

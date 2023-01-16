@@ -17,7 +17,7 @@ Basicamente la app debería ser capaz de coger el nombre y el email del usuario,
 ### Testeando la webapp
 
 #### Tests unitarios
-Basicamente estos tests se aseguran que cada componente trabaja de manera aislada. Esto es importante para comprobar que se renderizan correctamente. Estos tests se realizan utilizando jest y pueden ejercutarse con `npm run test`. Cada vez que se ejecutan los tests se realiza un analisis de covertura de código. Si se configura apropiadamente este analisis puede ser explotado por herramientas como [CodeCov](https://about.codecov.io/) para crear informes de covertura de código.
+Basicamente estos tests se aseguran que cada componente trabaja de manera aislada. Esto es importante para comprobar que se renderizan correctamente. Estos tests se realizan utilizando jest y pueden ejercutarse con `npm run test`. Cada vez que se ejecutan los tests se realiza un analisis de covertura de código. Si se configura apropiadamente este analisis puede ser explotado por herramientas como [SonarCloud](https://sonarcloud.io/) para crear informes de covertura de código.
 
 Algunos tests necesitan simular algunas partes de la aplicación. Por ejemplo el componente `EmailForm.tsx` utiliza la api para añadir un usuario. En los tests unitarios debemos simular estas llamadas para obtener resultados más robustos. Puedes revisar el archivo [EmailForm.test.tsx](src/components/EmailForm.test.tsx) para aprender como se hace esto.
 Por ejemplo:

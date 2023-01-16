@@ -58,7 +58,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@3.04
+      uses: elgohr/Publish-Docker-Github-Action@v5
       env:
         API_URI: http://${{ secrets.DEPLOY_HOST }}:5000/api
       with:
@@ -75,7 +75,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Publish to Registry
-      uses: elgohr/Publish-Docker-Github-Action@3.04
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
           name: pglez82/asw2223_0/restapi
           username: ${{ github.actor }}

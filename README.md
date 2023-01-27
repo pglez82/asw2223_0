@@ -45,25 +45,23 @@ npm start
 You should be able to access the application in [http://localhost:3000](http://localhost:3000).
 
 ## More information
-You can get more information about the respository in the other README files:
+You can get more information about the repository in the other README files:
 - Documentation: https://github.com/pglez82/asw2223_0/tree/master/docs
 - Webapp: https://github.com/pglez82/asw2223_0/tree/master/webapp
 - Restapi: https://github.com/pglez82/asw2223_0/tree/master/restapi
 
 
 ## Deployment
+For the deployment, we have several options. The first and more flexible is to deploy to a virtual machine using SSH. This will work with any cloud service (or with our own server). Other options include using the container services that all the cloud services provide. This means, deploying our Docker containers directly. Here I am going to use the first approach. I am going to create a virtual machine in a cloud service and after installing docker and docker-compose, deploy our containers there using GitHub Actions and SSH.
 
-For the deployment we have serveral options. The first an more flexible is to deploy to a virtual machine using SSH. This will work with any cloud service (or with our own server). Other options include using the container services that all the cloud services provide. This means, deploying our Docker containers directly. Here I am going to use the first approach. I am going to create a virtual machine in a cloud service and after installing docker and docker-compose, deploy our containers there using GitHub Actions and SSH.
-
-### Create the virtual machine [Option 1 - Microsoft Azure]
-For this example I am going to create a virtual machine in Azure. Other services like Amazon AWS or Google Cloud, work in the same way.
-After logging in into Microsoft Azure with a student account, we can access the services provided. The first one in the creation of Virtual Machines.
+### Create the virtual machine [Option 1 - Microsoft Azure]For this example, I am going to create a virtual machine in Azure. Other services like Amazon AWS or Google Cloud, work in the same way.
+After logging in to Microsoft Azure with a student account, we can access the services provided. The first one in the creation of Virtual Machines.
 
 <p align="center">   
    <img width="500" alt="Azure options" src="https://user-images.githubusercontent.com/10683040/155282509-411030c5-2b9b-4161-bbe8-28cd9626df1e.png">
 </p>
 
-- After clicking in Virtual Machines we will be able to create a new virtual machine. The basic machine (2Gb of RAM), would be enough for this example. Make sure that a pair a keys are generated to be able to access the machine.
+- After clicking in Virtual Machines we will be able to create a new virtual machine. The basic machine (2Gb of RAM), would be enough for this example. Make sure that a pair of keys are generated to be able to access the machine.
 
 <p align="center">   
    <img width="500" alt="Creating the VM" src="https://user-images.githubusercontent.com/10683040/155282817-262a58dd-f203-45bf-aa73-421725aa8b03.png">
@@ -81,13 +79,13 @@ After logging in into Microsoft Azure with a student account, we can access the 
    <img width="500" alt="Network configuration" src="https://user-images.githubusercontent.com/10683040/155283691-7d782018-f61e-43ab-83fd-f52a0cf04725.png">
 </p>
 
-- To add more open ports, press in "Add inbound security route". Then, fill the information to open ports 3000 and 5000.
+- To add more open ports, press in "Add inbound security route". Then, fill in the information to open ports 3000 and 5000.
 
 <p align="center">   
    <img width="500" alt="Download private key" src="https://user-images.githubusercontent.com/10683040/155284067-e8a85c53-3171-4e40-b773-3d33e05b1159.png">
 </p>
 
-- Now is time for accessing the machine using SSH and installing docker in it. For this, use the public IP of your machine, with the user `azureuser` and the private key that you downloaded previously. If you are not sure how to connect, check the help in the connect tab in Azure. For instance, in my case I use this command for connecting:
+- Now is time for accessing the machine using SSH and install docker in it. For this, use the public IP of your machine, with the user `azureuser` and the private key that you downloaded previously. If you are not sure how to connect, check the help in the connect tab in Azure. For instance, in my case I use this command for connecting:
 
 ```ssh
 ssh -i ~/Descargas/DeploymentASW2223_key_0223.pem azureuser@52.147.199.48
@@ -98,7 +96,7 @@ Amazon Academy is a platform created by Amazon to prepare students to work with 
 
 - Log In at LMS AWS Academy with your student user/passwd
 - At the DashBoard, click on the Lab Course AWS Academy Learner Lab - Foundation Services [15286]
-- Now you are inside the AWS Course. The Module Menu Item show you available course materials : guides, presentations...Click on Learner Lab - Foundational Services to go to you lab. Lab image:
+- Now you are inside the AWS Course. The Module Menu Item shows you available course materials: guides, presentations...Click on Learner Lab - Foundational Services to go to your lab. Lab image:
 
 <p align="center">   
    <img width="500" alt="Fundational services" src="https://user-images.githubusercontent.com/10683040/158764913-80d6805c-f1ef-434c-a0f8-f2d4e2c09825.png">
@@ -112,19 +110,19 @@ Amazon Academy is a platform created by Amazon to prepare students to work with 
    <img width="500" alt="EC2 access" src="https://user-images.githubusercontent.com/10683040/158765167-0aa50330-8cad-4450-8060-8b972cdb46e4.png">
 </p>
 
-- In the EC2 Service, at the Instances Menu option, we can monitoring our created instances. Click the **Launch Instance** button to create a new instance 
+- In the EC2 Service, at the Instances Menu option, we can monitor our created instances. Click the **Launch Instance** button to create a new instance 
 
 <p align="center">   
    <img width="500" alt="Launch instance" src="https://user-images.githubusercontent.com/10683040/158769122-3b082ea9-d796-41ad-a8cb-1c46e309f4af.png">
 </p>
 
-- Follow wizard steps: - Step 1: Choose an Ubuntu 20.04 LTS image. 
+- Follow the wizard steps: - Step 1: Choose an Ubuntu 20.04 LTS image. 
 
 <p align="center">   
    <img width="500" alt="Launch instance" src="https://user-images.githubusercontent.com/10683040/158769294-092c02e3-6a24-449d-8697-affd287a28ea.png">
 </p>
 
-- Step 2:Choose Instance Type. We choose medium option. 
+- Step 2:Choose Instance Type. We choose the medium option. 
 
 <p align="center">   
    <img width="500" alt="Launch instance" src="https://user-images.githubusercontent.com/10683040/158769556-bfaa7733-04d4-45dc-8bfe-ddaf13154958.png">
@@ -148,7 +146,7 @@ Amazon Academy is a platform created by Amazon to prepare students to work with 
    <img width="500" alt="Default options" src="https://user-images.githubusercontent.com/10683040/158770582-2e33b804-a53b-4de8-bc60-7b8f6254abaf.png">
 </p>
 
-- Step 7: Summary. At the summary step, before launch our instance, a dialog ask us to create a new Key pair or use existing one. We'll create a new one with the default value. That will downlaod the **home.pem** file. We always can create new key pairs at the *AWS Console Menu - In the Security and Network - KeyPair* 
+- Step 7: Summary. At the summary step, before launching our instance, a dialog asks us to create a new Key pair or use an existing one. We'll create a new one with the default value. That will download the **home.pem** file. We always can create new key pairs at the *AWS Console Menu - In the Security and Network - KeyPair* 
 
 <p align="center">   
    <img width="300" alt="PEM key" src="https://user-images.githubusercontent.com/10683040/158771034-6ea46352-42d7-4506-a700-f2900d684d51.png">
@@ -159,7 +157,7 @@ Amazon Academy is a platform created by Amazon to prepare students to work with 
 ```
  chmod 400 awsdeployment.pem
 ```
-- Once the instace has been created, we need to know its public ip and/or public dns name. All this information is in the instance detail panel.
+- Once the instance has been created, we need to know its public ip and/or public dns name. All this information is in the instance detail panel.
 
 <p align="center">   
    <img width="500" alt="Detail instance" src="https://user-images.githubusercontent.com/10683040/158771619-7d893b8a-b09c-4d26-bb0e-96b3c86ede87.png">
@@ -172,7 +170,7 @@ ssh -i awsdeployment.pem ubuntu@ec2-44-202-121-52.compute-1.amazonaws.com
 ```
 
 ### Installing Docker and Docker compose in the virtual machine
-Now that we are in the terminal (it does not matter if using AWS or Azure or any other service), lets execute some commands to install Docker and docker-compose:
+Now that we are in the terminal (it does not matter if using AWS or Azure or any other service), let's execute some commands to install Docker and docker-compose:
 
 ```ssh
 sudo apt update
@@ -186,7 +184,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.28.5/docker-
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 ### GitHub Actions
-Now we have a capable machine of executing Docker containers. Lets configure our project to be able to use it to deploy our application. The first thing will be creating some GitHub secrets to have the information we need. We are going to create three, DEPLOY_HOST, with the IP of the virtual machine; DEPLOY_USER with the user with permissions to access the machine (azureuser), and DEPLOY_KEY with the contents of the file with the private key, so we are able to log in to the machine.
+Now we have a machine capable of executing Docker containers. Let's configure our project to be able to use it to deploy our application. The first thing will be creating some GitHub secrets to have the information we need. We are going to create three, DEPLOY_HOST, with the IP of the virtual machine; DEPLOY_USER with the user with permissions to access the machine (azureuser), and DEPLOY_KEY with the contents of the file with the private key, so we are able to log in to the machine.
 As an extra, we need permission to let GitHub Actions upload the docker images to the registry. For this we need to create a new access token with write:packages permission and set it in the DOCKER_PUSH_TOKEN secret.
 
 ![image](https://user-images.githubusercontent.com/10683040/155285731-4ecd6d29-b2f6-46ee-959b-689ea9f69fc7.png)
@@ -240,18 +238,12 @@ In order for everything to work, we need to make some extra modifications in the
 ```typescript
 const apiEndPoint= process.env.REACT_APP_API_URI || 'http://localhost:5000/api'
 ```
-This means that React will look for an environment variable and if it exists, it will take the `apiEndPoint` from there, chosing localhost in anyother case. Environment variables in React are picked up in building time and not in execution time. That means we need to pass this variable when we are building the docker image before deploying. For that we need to change the Dockerfile for the webapp and add the following lines before `npm run build`:
+This means that React will look for an environment variable and if it exists, it will take the `apiEndPoint` from there, choosing localhost in any other case. Environment variables in React are picked up in building time and not in execution time. That means we need to pass this variable when we are building the docker image before deploying. For that we need to change the Dockerfile for the webapp and add the following lines before `npm run build`:
 ```yaml
 ARG API_URI="http://localhost:5000/api"
 ENV REACT_APP_API_URI=$API_URI
 ```
-Now this Dockerfile has an argument (with a default value) that will be create the `REACT_APP_API_URI` environment variable before building the production release of the webapp. We need to pass this argument in the GitHub Actions file, when building the webapp image, that is in the job `docker-push-webapp`. 
-
-```yaml
-env:
-   API_URI: http://${{ secrets.DEPLOY_HOST }}:5000/api
-```
-Lastly we need to configure CORS accept petitions from all the sources in the restapi. This means changing the cors initialization in `restapi/server.ts` to:
+Now this Dockerfile has an argument (with a default value) that will create the `REACT_APP_API_URI` environment variable before building the production release of the webapp. We need to pass this argument in the GitHub Actions file, when building the webapp image, which is in the job `docker-push-webapp`. Lastly, we need to configure CORS to accept petitions from all the sources in the restapi. This means changing the cors initialization in `restapi/server.ts` to:
 ```typescript
 app.use(cors());
 ```
@@ -260,7 +252,7 @@ app.use(cors());
 Everything is ready now to make the deploy. For that we need to create a new release. That will fire up the deployment process that we have just configured:
 ![image](https://user-images.githubusercontent.com/10683040/155293978-8e77e821-ed21-4f28-abd9-282ae9e5661b.png)
 
-After the actions process is finished, we can access the application using the IP of our virtual machine in the port 3000. Note that is very simple to modify the application to work in the port 80 instead. We only need to open that port and configure react to use this port instead.
+After the actions process is finished, we can access the application using the IP of our virtual machine in port 3000. Note that is very simple to modify the application to work in port 80 instead. We only need to open that port and configure react to use this port instead.
 
 ![image](https://user-images.githubusercontent.com/10683040/155297402-41c09d54-8160-4832-be04-21951d18bc28.png)
 

@@ -13,7 +13,7 @@
 This project is a basic example of website using **React** with **Typescript** and an endpoint using **NodeJS** with **express**.
 
 ## Quick start guide
-<mark>In case you already have node.js and npm, make sure you update them before attempting to build the images</mark>
+<mark>In case you already have Node.js and npm, make sure you update them before attempting to build the images</mark>
 
 If you want to execute the project you will need [git](https://git-scm.com/downloads), [Node.js and npm](https://www.npmjs.com/get-npm) and [Docker](https://docs.docker.com/get-docker/). Make sure the three of them are installed in your system. Download the project with `git clone https://github.com/pglez82/asw2223_0`. The fastest way to launch everything is with docker:
 ```bash

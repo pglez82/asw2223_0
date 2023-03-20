@@ -254,7 +254,7 @@ Lastly we need to configure CORS accept petitions from all the sources in the re
 ```typescript
 app.use(cors());
 ```
-### Creating a new release
+### Creating a new release and deployment fire events changes
 
 Everything is ready now to make the deploy. For that we need to create a new release. That will fire up the deployment process that we have just configured:
 ![image](https://user-images.githubusercontent.com/10683040/155293978-8e77e821-ed21-4f28-abd9-282ae9e5661b.png)

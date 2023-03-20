@@ -3,7 +3,13 @@ name: CI for ASW2223
 on:
   release:
     types: [published]
-
+  pull_request:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - master
+  push:
+    branches:    
+      - develop
 jobs:
   unit-test-webapp:
     runs-on: ubuntu-latest

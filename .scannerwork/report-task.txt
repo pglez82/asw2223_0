@@ -1,7 +1,0 @@
-organization=pglez82
-projectKey=pglez82_asw2223_0
-serverUrl=https://sonarcloud.io
-serverVersion=8.0.0.39281
-dashboardUrl=https://sonarcloud.io/dashboard?id=pglez82_asw2223_0
-ceTaskId=AYcEiww6qja2E5DWDQj4
-ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AYcEiww6qja2E5DWDQj4

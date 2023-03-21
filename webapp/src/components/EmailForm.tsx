@@ -41,7 +41,7 @@ function EmailForm(props: EmailFormProps): JSX.Element {
       setNotificationStatus(true);
       setNotification({ 
         severity:'error',
-        message:'There\'s been an error in the register proccess.'
+        message:'There\'s been an error in the register process.'
       });
     }
   }

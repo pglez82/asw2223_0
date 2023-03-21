@@ -1,5 +1,4 @@
-import { render, fireEvent, act } from "@testing-library/react";
-import EmailForm from "./EmailForm";
+import { render, fireEvent, act, findByLabelText, findByText } from "@testing-library/react";import EmailForm from "./EmailForm";
 import {User} from './../shared/shareddtypes';
 import * as api from './../api/api'
 
@@ -15,6 +14,8 @@ test('check register fail', async () => {
     fireEvent.change(inputEmail, { target: { value: "gonzalezgpablo@uniovi.es" } });
     const button = getByText("Accept");
     fireEvent.click(button);
+    expect(jest.spyOn(api,'addUser')).toHaveBeenCalled() 
+    expect(await findByText(container,"There's been an error in the register process.")).toBeInTheDocument();
   });
 })
 
@@ -29,5 +30,7 @@ test('check register ok', async () => {
     fireEvent.change(inputEmail, { target: { value: "gonzalezgpablo@uniovi.es" } });
     const button = getByText("Accept");
     fireEvent.click(button);
+    expect(jest.spyOn(api,'addUser')).toHaveBeenCalled() 
+    expect(await findByText(container,"You have been registered in the system!")).toBeInTheDocument();
   });
 })

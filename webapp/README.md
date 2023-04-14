@@ -80,7 +80,7 @@ Once we have the recorder configured, and the application running (in Heroku for
 
 We can modify our load test for instance to inject 20 users at the same time:
 ```scala
-setUp(scn.inject(constantUsersPerSec(3).during(15))).protocols(httpProtocol)
+setUp(scn.injectOpen(constantUsersPerSec(3).during(15))).protocols(httpProtocol)
 ```
 changing it in the scala file. Check [here](https://gatling.io/docs/gatling/reference/current/core/injection/) to see more options about generating load.
 In order to execute the test we have to execute:
@@ -91,4 +91,4 @@ gatling.sh -s GetUsersList
 
 In the console, we will get an overview of the results and in the results directory we will have the full report in web format.
 
-It is important to note that we could also dockerize this load tests using this [image](https://hub.docker.com/r/denvazh/gatling). It is just a matter of telling the docker file where your gatling configuration and scala files are and the image will do the rest.
+It is important to note that we could also dockerize these load tests using this [image](https://hub.docker.com/r/denvazh/gatling). It is just a matter of telling the docker file where your gatling configuration and scala files are and the image will do the rest.
